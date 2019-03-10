@@ -1,5 +1,3 @@
-"use strict";
-
 var output	= new Array();
 var debug	= false;
 
