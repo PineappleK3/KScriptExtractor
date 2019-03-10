@@ -1,0 +1,17 @@
+# <Class> = <Definition>,<Definition>,<Definition>,<...>
+
+StyleLoader = [Style Loader],style-loader,text/css,stylesheet
+Authenticator = Wrong Credentials,checkflag.cgi,login.Credentials,/token/device
+ChatboxComponent = createElement,PureComponent,chat-messagecontent,render,ChatboxComponent,Chatbox
+ReactJS = https://reactjs.org/docs/,__reactInternalInstance$,__reactEventHandlers$,_reactListenersID,react-mount-point-unstable ,data-reactroot,rendererPackageName,react-dom
+ReactTransducer = @@__IMMUTABLE_ITERABLE__@@,@@__IMMUTABLE_KEYED__@@,@@__IMMUTABLE_INDEXED__@@,@@__IMMUTABLE_SEQ__@@,@@__IMMUTABLE_RECORD__@@
+ReactXP_ActivityIndicator = rx-activity,.rx-activity,animation,text/css
+ReactTimeLanguage = [[availableLocales],NumberFormat,react.element
+Registration = registration.RegistrationRequest,genericAgeQuestion,reg-box,Registration_FailedBecause,Registration_Finished,Registered
+LoginProtocol = TokenRequestResult_UserUnknown,/token/device,authenticateWithServer,/checkflag.cgi,CAN_USE_K3_CLIENT
+ChannelProtocol = Channel,ChannelIdentifier,ResolveChannelNameToIdRequest,messageType,PUBLIC,PRIVATE
+ClientProtocol = sinceTimestamp,Messenger,messageLimit,conversations,ConversationList,MessageWindow
+ClientUI = LandingpageBackground,LoginRegistration,URIError,createCookieBanner,Knuddels Logo,REGISTER_LABEL
+TrackJS = TrackJS Caught,TrackJS,.trackjs.com,__trackjs__
+ReactIntl = FormattedMessage,FormattedHTMLMessage,ELEMENT,formatjs.io,React Intl
+Language = pluralRuleFunction,locale,displayName,fields,parentLocale

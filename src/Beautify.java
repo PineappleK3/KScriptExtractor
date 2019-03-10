@@ -6,11 +6,17 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class Beautify {
+	public static boolean disabled = true;
+	
 	public static String run(String input) {
 		return call(input);
 	}
 	
 	private static String call(String code) {
+		if(disabled) {
+			return code;
+		}
+		
 		try {
 			URL url					= new URL("https://www.dsted.org/beautify/");
 			URLConnection con		= url.openConnection();

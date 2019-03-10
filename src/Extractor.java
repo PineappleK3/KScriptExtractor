@@ -1,4 +1,11 @@
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -43,6 +50,26 @@ public class Extractor {
 	}
 	
 	private void prepare() {
+		try {
+			Path directory = Paths.get("./temp");
+			
+			Files.walkFileTree(directory, new SimpleFileVisitor<Path>() {
+				@Override
+				public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+					Files.delete(file);
+					return FileVisitResult.CONTINUE;
+				}
+				
+				@Override
+				public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+					Files.delete(dir);
+					return FileVisitResult.CONTINUE;
+				}
+			});
+		} catch(Exception e) {
+			/* Do Nothing */
+		}
+		
 		new File("./temp").mkdirs();
 		new File("./temp/" + this.version).mkdirs();
 		new File("./temp/" + this.version + "/functions").mkdirs();
@@ -120,13 +147,13 @@ public class Extractor {
                 
                 array[position]		= ((String) entry).trim();
                 String content		= array[position];
+                String body			= content.substring(0, content.length() - 1);
+            	String resolved		= Resolver.test("func_" + number, body);
+                String file			= "./temp/" + this.version + "/functions/" + resolved + ".js";
                 
-                String file = "./temp/" + this.version + "/functions/func_" + number + ".js";
-                String body = content.substring(0, content.length() - 1);
-                
-                this.names.put(this.zeroize(position), "func_" + number);
+                this.names.put(this.zeroize(position), resolved);
             	
-        		new Saver(file, Beautify.run(this.injectName("func_" + number, body)));	
+        		new Saver(file, Beautify.run(this.injectName(resolved, body)));	
             }
         } finally {
             Context.exit();
